@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# appsetings.json - ze wzglêdu na to, ¿e ka¿dy ma unikalny ConnectionString do bazy danych
+appsettings.json
