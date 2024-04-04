@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Persistence.Context
+{
+    public interface IDapperContext
+    {
+        public IDbConnection CreateConnection();
+    }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 3ff1d74cc45e62443258ccd032af0a7cae158b27
+}

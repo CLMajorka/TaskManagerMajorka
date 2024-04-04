@@ -1,0 +1,31 @@
+<<<<<<< HEAD
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+=======
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+>>>>>>> 3ff1d74cc45e62443258ccd032af0a7cae158b27
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+  </ItemGroup>
+
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <Reference Include="Persistence">
+      <HintPath>bin\Debug\net6.0\Persistence.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+>>>>>>> 3ff1d74cc45e62443258ccd032af0a7cae158b27
+</Project>
