@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+﻿namespace Domain.Models;
+
+public enum ProjectStatus
+{
+    NotStarted,
+    Active,
+    Completed,
+    OnHold
+}
+=======
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,3 +25,4 @@ namespace Domain.Models
         OnHold
     }
 }
+>>>>>>> 3ff1d74cc45e62443258ccd032af0a7cae158b27

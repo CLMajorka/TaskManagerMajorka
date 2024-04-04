@@ -16,6 +16,10 @@ namespace Persistence.Context
         {
             _configuration = configuration;
         }
-        public IDbConnection CreateConnection() => new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+        public IDbConnection CreateConnection()
+            => new
+                SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+
+
     }
 }
