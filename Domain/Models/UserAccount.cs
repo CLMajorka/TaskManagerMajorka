@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +33,17 @@ namespace Domain.Models
             PasswordHash = passwordHash;
             PasswordLastChangedAt = passwordLastChangedAt;
         }
+
+        public static UserAccount Create(string userName, string email,UserRole role, string passwordHash)
+        {
+            if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(passwordHash) || !email.Contains("@"))
+            {
+                throw new ValidationException();
+            }
+
+            return new UserAccount(0, userName, email, role, DateTime.UtcNow, passwordHash);
+        }
     }
+}
 
     
