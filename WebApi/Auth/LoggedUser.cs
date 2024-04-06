@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+using Microsoft.Identity.Client;
+using Domain.Models;
 
 namespace WebApi.Auth
 {
