@@ -29,7 +29,7 @@ namespace WebApi.Repositories
 
         public int Create(IUser model)
         {
-            var sql = "INSERT INTO Users (UserId, UserName, Email, Role, CreatedAt, PasswordHash) VALUES ((SELECT ISNULL(MAX(UserId) + 1, 0) FROM Users), @UserName, @Email, @Role, @CreatedAt, @PasswordHash); SELECT CAST(SCOPE_IDENTITY() AS int)";
+            var sql = "INSERT INTO Users (UserName, Email, Role, CreatedAt, PasswordHash) VALUES (@UserName, @Email, @Role, @CreatedAt, @PasswordHash); SELECT CAST(SCOPE_IDENTITY() AS int)";
             using (var connection = _dapperContext.CreateConnection())
             {
                 var id = connection.QuerySingle<int>(sql, model);
@@ -45,6 +45,16 @@ namespace WebApi.Repositories
         public bool Delete(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<User> Authenticate(string userName, string password)
+        {
+            using (var connection = _dapperContext.CreateConnection())
+            {
+                var sql = "SELECT UserId, UserName, Email, Role FROM Users WHERE UserName = @UserName AND PasswordHash = @Password";
+                var user = await connection.QuerySingleOrDefaultAsync<User>(sql, new { userName, password });
+                return user;
+            }
         }
     }
 }
