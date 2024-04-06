@@ -1,6 +1,9 @@
 
+using Application.Services;
+using Persistence.Context;
 using WebApi.Auth;
-using WebApi.DAL;
+using WebApi.Interfaces;
+using WebApi.Repositories;
 
 namespace WebApi
 {
@@ -19,8 +22,11 @@ namespace WebApi
 
             builder.Services.AddSingleton<IDapperContext, DapperContext>();
 
-            builder.Services.AddSingleton<LoggedUser>(provider =>
-                new LoggedUser("admin", "admin@example.com", 1));
+           // builder.Services.AddSingleton<LoggedUser>(provider =>
+           //     new LoggedUser("admin", "admin@example.com", 1));
+
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IUserAccountService, UserAccountService>();
 
             var app = builder.Build();
 
