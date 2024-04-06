@@ -1,4 +1,3 @@
-using Microsoft.Identity.Client;
 using Domain.Models;
 
 namespace WebApi.Auth
@@ -9,5 +8,13 @@ namespace WebApi.Auth
         public string UserName { get; }
         public string Email { get; }
         public UserRole Role { get; }
+
+        public LoggedUser(int userId, string userName, string email, UserRole role)
+        {
+            UserId = userId;
+            UserName = userName;
+            Email = email;
+            Role = role;
+        }
     }
 }
