@@ -1,4 +1,7 @@
-﻿namespace Domain.Models;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Data.SqlTypes;
+using Application.DTOs;
+namespace Domain.Models;
 
 /// <summary>
 /// Model biznesowy i bazodanowy zadania.
@@ -40,5 +43,18 @@ public class TaskItem
         ModifiedBy = modifiedBy;
         ModifiedAt = modifiedAt;
         _comments = comments;
+    }
+
+    public Comment AddComment(int commentId, int taskId, string text,
+        User createdBy, DateTime createdAt,
+        User modifiedBy, DateTime? modifiedAt,
+        List<User> likedBy)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            throw new ValidationException("Tekst komentarza nie może być pusty.");
+        }
+
+        return new Comment(commentId, taskId, text, createdBy, DateTime.UtcNow, createdBy, null, new List<User>() );
     }
 }
