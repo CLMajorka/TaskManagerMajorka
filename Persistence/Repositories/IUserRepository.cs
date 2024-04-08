@@ -10,5 +10,7 @@ namespace WebApi.Interfaces
         int Create(IUser model);
         bool Update(IUser model); 
         bool Delete(int id);
+
+        Task<User?> Authenticate(string username, string password);
     }
 }
